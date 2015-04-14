@@ -1,0 +1,37 @@
+Just call the :Isort command. Or select a block of imports with visual mode, and press Ctrl-i to sort them.
+            vim-sort
+%
+<C-X>/        Last HTML tag closed
+            vim-ragtag
+%
+<Leader>o    To open the github-page of the plugin under cursor
+            open_plugin_page
+%
+<Leader>ig   To show indent guides
+            vim-indent-guides
+%
+gc           To toggle comments for the selected block
+            tcomment_vim
+%
+F2           To toggle the task list
+            keyboard mappings
+%
+F3           To toggle Yankring window
+            keyboard mappings
+%
+F5           To toggle the TagBar window
+            keyboard mappings
+%
+C-F6         To switch to the next buffer
+            keyboard mappings
+%
+F7           To open terminal window with iPython
+            keyboard mappings (python)
+%
+F10          To toggle the NERDTree window
+            keyboard mappings
+%
+%
+<Leader>c    To clear selections
+            keyboard mappings
+%
