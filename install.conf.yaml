@@ -11,3 +11,4 @@
     ~/.gvimrc: gvimrc
     ~/.todo/config: todo/config
     ~/.config/ranger/rc.conf: ranger/rc.conf
+    ~/.dir_colors: dir_colors
