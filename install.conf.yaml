@@ -1,0 +1,11 @@
+- clean: ['~', '~/.config']
+
+- link:
+    ~/.dotfiles: ''
+    ~/.vim: vim/
+    ~/.vimrc: vimrc
+    ~/.gvimrc: gvimrc
+
+- shell:
+  - mkdir -p ~/.config/ranger ~/.todo
+  - git submodule update --init --recursive
