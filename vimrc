@@ -86,7 +86,7 @@ Plug 'freeo/vim-kalisi'
 call plug#end()
 
 " }}}
-"
+
 filetype on
 filetype plugin on
 filetype plugin indent on
