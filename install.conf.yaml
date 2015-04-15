@@ -1,7 +1,7 @@
 - clean: ['~', '~/.config']
 
 - shell:
-  - mkdir -p ~/.config/ranger ~/.todo
+  - mkdir -p ~/.config/ranger ~/.todo ~/.zsh
   - git submodule update --init --recursive
 
 - link:
@@ -13,3 +13,5 @@
     ~/.config/ranger/rc.conf: ranger/rc.conf
     ~/.dir_colors: dir_colors
     ~/.gitconfig: gitconfig
+    ~/.zshrc: zshrc
+    ~/.zsh/functions.zsh: zsh/functions.zsh
