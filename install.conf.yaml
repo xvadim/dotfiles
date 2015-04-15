@@ -1,7 +1,7 @@
 - clean: ['~', '~/.config']
 
 - shell:
-  - mkdir -p ~/.config/ranger ~/.todo ~/.zsh
+  - mkdir -p ~/.config/ranger ~/.todo ~/.zsh ~/bin
   - git submodule update --init --recursive
 
 - link:
@@ -15,3 +15,4 @@
     ~/.gitconfig: gitconfig
     ~/.zshrc: zshrc
     ~/.zsh/functions.zsh: zsh/functions.zsh
+    ~/bin/trash: bin/trash
