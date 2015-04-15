@@ -1,0 +1,46 @@
+[http]
+    sslVerify = false
+[color]
+    branch = auto
+    status = auto
+    diff = auto
+    ui = auto
+
+[core]
+    excludesfile = /Users/vadimkhohlov/.gitignore
+
+[mergetool "fugitive"]
+    cmd = mvim -f -c \"Gdiff\" \"$MERGED\"
+
+[merge]
+    tool = fugitive
+
+[alias]
+    st = status
+    ci = commit
+    co = checkout
+    cob = checkout -b
+    br = branch
+    lg = log --graph --abbrev-commit --decorate --date=short --format=format:'%C(cyan)%h%C(reset) - %C(bold green)(%ad)%C(reset) %C(bold yellow)%s%C(reset) %C(dim white)<%an>%C(reset)%C(bold white)%d%C(reset)' --all
+
+[filter "media"]
+    required = true
+    clean = git media clean %f
+    smudge = git media smudge %f
+
+[filter "hawser"]
+    clean = git hawser clean %f
+    smudge = git hawser smudge %f
+    required = true
+
+[filter "lfs"]
+    clean = git lfs clean %f
+    smudge = git lfs smudge %f
+    required = true
+
+#Store name/email separatly
+#[user]
+#    name =
+#    email =
+[include]
+    path = ~/.gitconfig_local
