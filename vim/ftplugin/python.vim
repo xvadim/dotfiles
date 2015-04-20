@@ -3,8 +3,9 @@
 "=====================================================
 "
 let b:cursorword = 1
-let b:cursorword_blacklist = ['self', 'def', 'import', 'for', 'while', 'print', 
-                            \ 'from', 'class', 'def', 'classmethod', 'cls', 'return']
+let b:cursorword_blacklist = ['from', 'import', 'for', 'while', 'continue', 'break', 'print',
+                            \ 'class', 'def', 'classmethod', 'staticmethod', 'cls', 'self', 'return',
+                            \ 'yield']
 
 
 let g:pymode_rope = 1
