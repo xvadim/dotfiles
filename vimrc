@@ -338,6 +338,7 @@ nmap 8 *
 
 " ; for command mode - avoid pressing Shift again
 nnoremap ; :
+nnoremap : ;
 
 " move inside long lines with j/k
 nnoremap j gj
