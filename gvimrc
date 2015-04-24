@@ -8,8 +8,8 @@ endif
 
 set antialias
 
-colo darkerdesert
-
+"colo darkerdesert
+colo primary
 
 " Menu options
 
