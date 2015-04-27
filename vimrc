@@ -311,25 +311,25 @@ let maplocalleader=","
 " Keyboard mappings {{{
 
 "TaskList
-map <F2> :TaskList<CR>
+map <F2> ;TaskList<CR>
 
 "F3 - open Yankring window
-nmap <F3> :YRShow<cr>
-imap <F3> <esc>:YRShow<cr>
+nmap <F3> ;YRShow<cr>
+imap <F3> <esc>;YRShow<cr>
 
 "TagBar
-map <F5> :TagbarToggle<CR>
+map <F5> ;TagbarToggle<CR>
 
 "F6 - switch to the next buffer
-imap <C-F6> <Esc>:bn<Cr>i
-map <C-F6> :bn<CR>
+imap <C-F6> <Esc>;bn<Cr>i
+map <C-F6> ;bn<CR>
 
 " F10 - open/close NERDTree
-nmap <F10> :NERDTreeToggle<cr>
-imap <F10> <esc>:NERDTreeToggle<cr>
+nmap <F10> ;NERDTreeToggle<cr>
+imap <F10> <esc>;NERDTreeToggle<cr>
 
 " \c clears selection
-nmap <Leader>c :nohl<cr>:AnzuClearSearchStatus<cr>
+nmap <Leader>c ;nohl<cr>;AnzuClearSearchStatus<cr>
 "
 " \h invokes Dash for the word under cursor
 nmap <silent> <Leader>h <Plug>DashSearch
