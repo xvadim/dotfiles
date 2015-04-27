@@ -82,7 +82,7 @@ Plug 'tomasr/molokai'
 Plug 'xoria256.vim'
 Plug 'pyte'
 Plug 'freeo/vim-kalisi'
-Plug 'google/vim-colorscheme-primarsy'
+Plug 'google/vim-colorscheme-primary'
 
 call plug#end()
 
