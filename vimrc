@@ -22,6 +22,7 @@ Plug 'mhinz/vim-startify'             " Nice start screen
 Plug 'airblade/vim-rooter'            " Setting correct root dir
 Plug 'rizzatti/dash.vim'              " Dash integration
 Plug 'buztard/vim-rel-jump'           " turns [count]j and [count]k motions into jumps (i.e. C-o support)
+Plug 'junegunn/vim-peekaboo'          " Show the contents of the registers on the sidebar when you hit " or @
 
 "------------------=== Editing ===----------------------
 Plug 'tpope/vim-surround'             " Parentheses, brackets, quotes, XML tags, and more
