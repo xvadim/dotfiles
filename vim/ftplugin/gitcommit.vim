@@ -2,6 +2,6 @@ setlocal spell
 
 " Underline misspelled words
 hi clear SpellBad
-hi SpellBad cterm=underline
+hi SpellBad cterm=bold ctermfg=Red
 
 start
