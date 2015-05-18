@@ -69,12 +69,14 @@ Plug 'fisadev/vim-isort'              " Imports sorting
 Plug 'kana/vim-textobj-user'          " dep. for vim-textobj-python
 Plug 'bps/vim-textobj-python'         " text objects for Python functions and classes
 
+" --- Swift ---
+Plug 'keith/swift.vim'                " Syntax and indent files for Swift
+
 " --- Markdown ---
 Plug 'plasticboy/vim-markdown'        " Syntax and mappings
 Plug 'nelstrom/vim-markdown-folding'  " Folding by markdown headers
 
 " --- TodoTxt
-" Plug 'freitass/todo.txt-vim'          " syntax and mapping for todotxt
 Plug 'dbeniamine/todo.txt-vim'          " syntax and mapping for todotxt
 
 " ---------=== Themes === -----------
