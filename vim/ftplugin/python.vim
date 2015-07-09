@@ -58,7 +58,7 @@ map <buffer> <leader>8 :PymodeLint<CR>
 " Menu for python commands
 set wcm=<Tab>
 	vmenu Python.Coment\ selection\ [visual]\ (gc)	gc
-	amenu Python.Sort\ imports\ (:Isort)			<ESC>:Isort<CR>
+	amenu Python.Sort\ imports\ (;Isort)			<ESC>;Isort<CR>
 	vmenu Python.Sort\ selected\ imports\ (Ctrl-i)	<C-i>
 	amenu Python.-sep1-								<Nop>
 	amenu Python.Select\ a\ function\ (vaf)			<ESC>vaf
@@ -66,7 +66,7 @@ set wcm=<Tab>
 	amenu Python.Select\ a\ class\ (vac)			<ESC>vac
 	amenu Python.Select\ inner\ class\ (vic)			<ESC>vic
 	amenu Python.-sep2-								<Nop>
-	amenu Python.IPython\ console\ (<F7>)			<ESC>:ConqueTermSplit ipython<CR>
+	amenu Python.IPython\ console\ (<F7>)			<ESC>;ConqueTermSplit ipython<CR>
 
 
 " vim:noexpandtab

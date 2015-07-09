@@ -22,11 +22,11 @@ set wcm=<Tab>
 autocmd BufReadPost .vimrc amenu User.Open\ plugin\ Github-page\ (<Leader>o)	<ESC><Leader>o
 
 " File encoding menu
-	menu Encoding.koi8-r		:e ++enc=koi8-r<CR>
-	menu Encoding.koi8-u		:e ++enc=koi8-u<CR>
-	menu Encoding.windows-1251	:e ++enc=cp1251<CR>
-	menu Encoding.ibm-866		:e ++enc=ibm866<CR>
-	menu Encoding.utf-8			:e ++enc=utf-8 <CR>
+	menu Encoding.koi8-r		;e ++enc=koi8-r<CR>
+	menu Encoding.koi8-u		;e ++enc=koi8-u<CR>
+	menu Encoding.windows-1251	;e ++enc=cp1251<CR>
+	menu Encoding.ibm-866		;e ++enc=ibm866<CR>
+	menu Encoding.utf-8			;e ++enc=utf-8 <CR>
 
 " ==== Menu of mappings ====
 
@@ -56,8 +56,8 @@ autocmd BufReadPost .vimrc amenu User.Open\ plugin\ Github-page\ (<Leader>o)	<ES
 
 " Pad menu: Plug 'fmoralesc/vim-pad'
 	amenu User.-sep20-									<Nop>
-	amenu User.Pad.Pad\ list\ (:Pad\ ls)					<ESC>:Pad ls<CR>
-	amenu User.Pad.Pad\ new\ unnamed\ (:Pad\ new)			<ESC>:Pad new<CR>
-	amenu User.Pad.Pad\ new\ with\ name\ (:Pad\ new\ name)	<ESC>:Pad new 
+	amenu User.Pad.Pad\ list\ (:Pad\ ls)					<ESC>;Pad ls<CR>
+	amenu User.Pad.Pad\ new\ unnamed\ (:Pad\ new)			<ESC>;Pad new<CR>
+	amenu User.Pad.Pad\ new\ with\ name\ (:Pad\ new\ name)	<ESC>;Pad new 
 
 " vim:noexpandtab
