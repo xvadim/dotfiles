@@ -86,6 +86,9 @@ alias gpud="git pull --rebase origin develop"
 alias gpom="git push origin master"
 alias gpum="git pull --rebase origin master"
 
+# Android Studio alias
+alias ast="open -a /Applications/Android\ Studio.app ."
+
 # Hashes
 hash -d wmL=~/work/mobile/LifelikeClassifieds
 hash -d wmLL=~/work/mobile/LLAgentsClient
