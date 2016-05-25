@@ -131,7 +131,7 @@ let g:ycm_filetype_blacklist = {
 " Vim-Airline
 set laststatus=2
 " let g:airline_theme='badwolf'
-let g:airline_theme='kalisi'
+" let g:airline_theme='kalisi'
 let g:airline#extensions#tagbar#flags = 'f'
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_tab_type = 0

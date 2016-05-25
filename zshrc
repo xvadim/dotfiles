@@ -189,6 +189,7 @@ source "`brew --prefix`/etc/profile.d/z.sh"
 export TODOTXT_DEFAULT_ACTION=ls
 alias t=todo.sh
 compdef t='todo.sh'
+alias tb='todo.sh birdseye'
 
 # hh - https://github.com/dvorka/hstr
 export HH_CONFIG=hicolor,rawhistory
