@@ -34,13 +34,22 @@
     required = true
 
 [filter "lfs"]
-    clean = git lfs clean %f
-    smudge = git lfs smudge %f
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
     required = true
 
-#Store name/email separatly
-#[user]
-#    name =
-#    email =
-[include]
-    path = ~/.gitconfig_local
+[user]
+    name = xvadim
+    email = xvadima@ukr.net
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+    template = /Users/vadimkhohlov/.stCommitMsg
+
+[includeIf "gitdir:~/work/mobile/tangram/"]
+    path = ~/work/mobile/tangram/gitconfig-tangram
