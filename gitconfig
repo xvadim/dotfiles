@@ -1,5 +1,6 @@
 [http]
     sslVerify = false
+
 [color]
     branch = auto
     status = auto
@@ -8,12 +9,22 @@
 
 [core]
     excludesfile = /Users/vadimkhohlov/.gitignore
+    # https://github.com/dandavison/delta
+    pager = delta
 
-[mergetool "fugitive"]
-    cmd = mvim -f -c \"Gdiff\" \"$MERGED\"
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true  # use n and N to move between diff sections
+    dark = true 
 
 [merge]
     tool = fugitive
+    conflictstyle = zdiff3
+
+[mergetool "fugitive"]
+    cmd = mvim -f -c \"Gdiff\" \"$MERGED\"
 
 [alias]
     st = status
@@ -42,12 +53,15 @@
 [user]
     name = xvadim
     email = xvadima@ukr.net
+
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    path = 
+
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+    trustExitCode = true
+
 [commit]
     template = /Users/vadimkhohlov/.stCommitMsg
 

@@ -51,7 +51,7 @@ extr () {
 
 ra ()  {
     tempfile='/tmp/chosendir'
-    EDITOR=mvim ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+    EDITOR="vimr --nvim" ranger --choosedir="$tempfile" "${@:-$(pwd)}"
     test -f "$tempfile" &&
     if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
         cd -- "$(cat "$tempfile")"

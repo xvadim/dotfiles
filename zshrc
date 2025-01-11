@@ -67,11 +67,16 @@ alias -s log=less
 alias -s blog=mvim
 
 # Common aliases
+alias a="alias"
 alias ds="du -s ."
 alias mvimdiff="mvim -d"
-alias ls="gls --color=auto"
-alias ll="gls -lh --color=auto"
+# alias ls="gls --color=auto"
+# alias ll="gls -lh --color=auto"
+alias ls="eza --icons --color=auto"
+alias ll="eza --icons -lh --color=auto"
 alias reload="source ~/.zshrc"
+alias o="open ."
+alias m="make"
 
 # Git aliases
 alias gc="git commit -a"
@@ -81,27 +86,27 @@ alias gd="git diff"
 alias gb="git branch"
 alias gl="git lg"
 alias gm="git merge"
-alias gpod="git push origin develop"
-alias gpud="git pull --rebase origin develop"
+alias gpo="git push origin"
+alias gpu="git pull --rebase origin"
 alias gpom="git push origin master"
 alias gpum="git pull --rebase origin master"
 
 # Android Studio alias
 alias ast="open -a /Applications/Android\ Studio.app ."
 
+# Flutter aliases
+alias fu="flutter upgrade"
+
 # Hashes
-hash -d wmL=~/work/mobile/LifelikeClassifieds
-hash -d wmLL=~/work/mobile/LLAgentsClient
 hash -d wm=~/work/mobile
 hash -d wa=~/work/android
-hash -d b=~/work/blogger
 hash -d d=~/.dotfiles
 hash -d wx=~/work/android/xbasoft
-hash -d wmS=~/work/mobile/search-agents
 
 # Errors autocorrection
 setopt CORRECT_ALL
-SPROMPT="Ошибка! Вы хотели ввести %r вместо %R? ([Y]es/[N]o/[E]dit/[A]bort) "
+SPROMPT="Помилка! Ви хотіли ввести %r замість %R? ([Y]es/[N]o/[E]dit/[A]bort) "
+
 
 # Moving by dirs without cd
 setopt autocd
@@ -124,7 +129,8 @@ fi
 
 CDPATH=.:~:~/work
 
-PATH=$PATH:~/work/android/android-sdk-macosx/tools/:~/bin
+PATH=$PATH:~/work/android/android-sdk-macosx/tools/:~/bin:~/work/android/flutter/flutter/.pub-cache/bin:~/.pub-cache/bin
+PATH=~/work/android/flutter/flutter/bin:$PATH
 
 GIT_SSL_NO_VERIFY=1
 
@@ -171,25 +177,93 @@ zle -N zle-keymap-select
 export KEYTIMEOUT=1
 
 PROMPT='%B[(20%D) $PR_COLOR%n$PR_NO_COLOUR] $PR_WHITE%~%F{green}${vcs_info_msg_0_}$PR_WHITE%#$PR_NO_COLOUR '
+RPROMPT=$'%(?,%{\e[34m%}%m%{\e[0m%},%{\e[1;31m%}:(%{\e[0m%})'
 
 # Sourcing of other files
 source $HOME/.zsh/functions.zsh
 
-export EDITOR=/Applications/MacVim.app/Contents/MacOS/Vim
+export EDITOR=nvim
 
 # https://github.com/zsh-users/zsh-syntax-highlighting
 source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ZSH_HIGHLIGHT_STYLES[single-hyphen-option]='fg=magenta'
 ZSH_HIGHLIGHT_STYLES[double-hyphen-option]='fg=magenta,bold'
 
-# z - https://github.com/rupa/z
-source "`brew --prefix`/etc/profile.d/z.sh"
-
 # todotxt
 export TODOTXT_DEFAULT_ACTION=ls
 alias t=todo.sh
 compdef t='todo.sh'
 alias tb='todo.sh birdseye'
+alias ta='tp adda'
 
-# hh - https://github.com/dvorka/hstr
-export HH_CONFIG=hicolor,rawhistory
+# nginx
+alias nginx.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
+alias nginx.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
+alias nginx.restart='nginx.stop && nginx.start'
+
+## [Completion]
+## Completion scripts setup. Remove the following line to uninstall
+[[ -f /Users/vadimkhohlov/.dart-cli-completion/zsh-config.zsh ]] && . /Users/vadimkhohlov/.dart-cli-completion/zsh-config.zsh || true
+## [/Completion]
+
+# Spaceship prompt
+# https://github.com/spaceship-prompt
+#
+source ~/.zsh/spaceship/spaceship-flutter/spaceship-flutter.plugin.zsh
+# must be placed after all additional plugins
+source "/usr/local/opt/spaceship/spaceship.zsh"
+
+# FZF
+# https://github.com/junegunn/fzf
+#
+eval "$(fzf --zsh)"
+
+# --- setup fzf theme ---
+fg="#CBE0F0"
+bg="#011628"
+bg_highlight="#143652"
+purple="#B388FF"
+blue="#06BCE4"
+cyan="#2CF9ED"
+
+export FZF_DEFAULT_OPTS="--color=fg:${fg},bg:${bg},hl:${purple},fg+:${fg},bg+:${bg_highlight},hl+:${purple},info:${blue},prompt:${cyan},pointer:${cyan},marker:${cyan},spinner:${cyan},header:${cyan}"
+export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_ALT_C_COMMAND="fd --type=d --hidden --strip-cwd-prefix --exclude .git"
+
+# Use fd (https://github.com/sharkdp/fd) for listing path candidates.
+_fzf_compgen_path() {
+  fd --hidden --exclude .git . "$1"
+}
+
+# Use fd to generate the list for directory completion
+_fzf_compgen_dir() {
+  fd --type=d --hidden --exclude .git . "$1"
+}
+show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
+
+export FZF_CTRL_T_OPTS="--preview '$show_file_or_dir_preview'"
+export FZF_ALT_C_OPTS="--preview 'eza --tree --color=always {} | head -200'"
+
+# Advanced customization of fzf options via _fzf_comprun function
+_fzf_comprun() {
+  local command=$1
+  shift
+
+  case "$command" in
+    cd)           fzf --preview 'eza --tree --color=always {} | head -200' "$@" ;;
+    export|unset) fzf --preview "eval 'echo ${}'"         "$@" ;;
+    ssh)          fzf --preview 'dig {}'                   "$@" ;;
+    *)            fzf --preview "$show_file_or_dir_preview" "$@" ;;
+  esac
+}
+
+# Bat (better cat) 
+# https://github.com/sharkdp/bat
+
+export BAT_THEME=tokyonight_night
+
+# Zoxide (better cd) 
+# https://github.com/ajeetdsouza/zoxide
+eval "$(zoxide init zsh)"
+
