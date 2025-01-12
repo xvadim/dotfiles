@@ -68,15 +68,16 @@ alias -s blog=mvim
 
 # Common aliases
 alias a="alias"
+alias cl='clear'
 alias ds="du -s ."
-alias mvimdiff="mvim -d"
-# alias ls="gls --color=auto"
-# alias ll="gls -lh --color=auto"
-alias ls="eza --icons --color=auto"
-alias ll="eza --icons -lh --color=auto"
 alias reload="source ~/.zshrc"
 alias o="open ."
 alias m="make"
+
+# Eza
+alias ls="eza --icons --color=auto"
+alias ll="eza --icons -lh --color=auto"
+alias lt="eza --tree --level=2 --long --icons --git"
 
 # Git aliases
 alias gc="git commit -a"
