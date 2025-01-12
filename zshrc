@@ -64,7 +64,7 @@ colors
 # File aliases
 alias -s {avi,mpeg,mpg,mov,m2v,flv}=mplayer
 alias -s log=less
-alias -s blog=mvim
+alias -s blog=nvim
 
 # Common aliases
 alias a="alias"
