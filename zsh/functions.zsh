@@ -49,14 +49,15 @@ extr () {
     fi
 }
 
-ra ()  {
-    tempfile='/tmp/chosendir'
-    EDITOR="vimr --nvim" ranger --choosedir="$tempfile" "${@:-$(pwd)}"
-    test -f "$tempfile" &&
-    if [ "$(cat -- "$tempfile")" != "$(echo -n `pwd`)" ]; then
-        cd -- "$(cat "$tempfile")"
+# Open yazi and cd to the latest dir
+# https://yazi-rs.github.io/
+function y() {
+    local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+    yazi "$@" --cwd-file="$tmp"
+    if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+        builtin cd -- "$cwd"
     fi
-    rm -f -- "$tempfile"
+    rm -f -- "$tmp"
 }
 
 # Automatically list directory contents on `cd`.
