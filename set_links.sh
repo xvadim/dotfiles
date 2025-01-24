@@ -9,3 +9,4 @@ ln -s ~/.dotfiles/zshrc ~/.zshrc
 ln -s ~/.dotfiles/zsh/functions.zsh ~/.zsh/functions.zsh
 ln -s ~/.dotfiles/bin/trash ~/bin/trash
 ln -s ~/.dotfiles/yazi ~/.config/yazi
+ln -s ~/.dotfiles/kitty ~/.config/kitty
