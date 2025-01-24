@@ -75,8 +75,8 @@ alias o="open ."
 alias m="make"
 
 # Eza
-alias ls="eza --icons --color=auto"
-alias ll="eza --icons -lh --color=auto"
+alias ls="eza --icons --hyperlink --color=auto"
+alias ll="eza --icons --hyperlink -lh --color=auto"
 alias lt="eza --tree --level=2 --long --icons --git"
 
 # Git aliases
