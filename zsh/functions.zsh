@@ -16,11 +16,11 @@ function take {
 }
 
 function xc {
-    WORKSPACE=$(ls -dt *.xcworkspace 2> /dev/null | head -n 1)
+    WORKSPACE=$("ls" -dt *.xcworkspace 2> /dev/null | head -n 1)
     if [[ -n $WORKSPACE ]]; then
         open $WORKSPACE
     else
-        PROJECT=$(ls -dt *.xcodeproj 2> /dev/null | head -n 1)
+        PROJECT=$("ls" -dt *.xcodeproj 2> /dev/null | head -n 1)
         if [[ -n $PROJECT ]]; then
             open $PROJECT
         fi

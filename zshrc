@@ -128,10 +128,20 @@ else
     eval PR_COLOR=$PR_YELLOW
 fi
 
+export HOMEBREW_PREFIX="/opt/homebrew";
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar";
+export HOMEBREW_REPOSITORY="/opt/homebrew";
+fpath[1,0]="/opt/homebrew/share/zsh/site-functions";
+
+
+PATH=/opt/homebrew/bin:/opt/homebrew/sbin:$PATH:~/work/android/android-sdk-macosx/tools/:~/bin:~/work/android/flutter/flutter/.pub-cache/bin:~/.pub-cache/bin
+PATH=~/work/android/flutter/flutter/bin:$PATH
+PATH=$PATH:/usr/local/share/dotnet/x64
+
 CDPATH=.:~:~/work
 
-PATH=$PATH:~/work/android/android-sdk-macosx/tools/:~/bin:~/work/android/flutter/flutter/.pub-cache/bin:~/.pub-cache/bin
-PATH=~/work/android/flutter/flutter/bin:$PATH
+[ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}";
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}";
 
 GIT_SSL_NO_VERIFY=1
 
@@ -197,11 +207,6 @@ compdef t='todo.sh'
 alias tb='todo.sh birdseye'
 alias ta='tp adda'
 
-# nginx
-alias nginx.start='sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
-alias nginx.stop='sudo launchctl unload /Library/LaunchDaemons/homebrew.mxcl.nginx.plist'
-alias nginx.restart='nginx.stop && nginx.start'
-
 ## [Completion]
 ## Completion scripts setup. Remove the following line to uninstall
 [[ -f /Users/vadimkhohlov/.dart-cli-completion/zsh-config.zsh ]] && . /Users/vadimkhohlov/.dart-cli-completion/zsh-config.zsh || true
@@ -212,7 +217,7 @@ alias nginx.restart='nginx.stop && nginx.start'
 #
 source ~/.zsh/spaceship/spaceship-flutter/spaceship-flutter.plugin.zsh
 # must be placed after all additional plugins
-source "/usr/local/opt/spaceship/spaceship.zsh"
+source "/opt/homebrew/opt/spaceship/spaceship.zsh"
 
 # FZF
 # https://github.com/junegunn/fzf
@@ -267,4 +272,17 @@ export BAT_THEME=tokyonight_night
 # Zoxide (better cd) 
 # https://github.com/ajeetdsouza/zoxide
 eval "$(zoxide init zsh)"
+
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/vadimkhohlov/work/mobile/tangram/gloud/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/vadimkhohlov/work/mobile/tangram/gloud/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/vadimkhohlov/work/mobile/tangram/gloud/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/vadimkhohlov/work/mobile/tangram/gloud/google-cloud-sdk/completion.zsh.inc'; fi
+
+
+# nvm 
+export NVM_DIR="$HOME/.nvm"
+# This loads nvm 
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh" 
 
