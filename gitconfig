@@ -8,9 +8,10 @@
     ui = auto
 
 [core]
-    excludesfile = /Users/vadimkhohlov/.gitignore
+	excludesfile = /Users/vadimkhohlov/.gitignore
     # https://github.com/dandavison/delta
     pager = delta
+	editor = nvim -c 'startinsert'
 
 [interactive]
     diffFilter = delta --color-only
@@ -51,19 +52,19 @@
     required = true
 
 [user]
-    name = xvadim
-    email = xvadima@ukr.net
+	name = xvadim
+	email = xvadima@ukr.net
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path = 
+	path = 
 
 [mergetool "sourcetree"]
 	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
+	trustExitCode = true
 
 [commit]
-    template = /Users/vadimkhohlov/.stCommitMsg
+	template = /Users/vadimkhohlov/.stCommitMsg
 
 [includeIf "gitdir:~/work/mobile/tangram/"]
     path = ~/work/mobile/tangram/gitconfig-tangram
