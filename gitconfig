@@ -52,7 +52,7 @@
     required = true
 
 [user]
-	name = xvadim
+	name = Vadym Khokhlov
 	email = xvadima@ukr.net
 
 [difftool "sourcetree"]
